@@ -182,5 +182,3 @@ alma-band6_1p3=misc/alma6_1p3.fits
 alma-band5_1p5=misc/alma5_1p5.fits
 alma-band4_2p0=misc/alma4_2p0.fits
 alma-band3_3p1=misc/alma3_3p1.fits
-JCMT-450=lynge/JCMT_450.fits
-JCMT-850=lynge/JCMT_850.fits
