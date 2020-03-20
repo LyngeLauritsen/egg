@@ -12,7 +12,7 @@ find_package(vif)
 set(EGG_SHARE_DIR ${CMAKE_INSTALL_PREFIX}/share/egg)
 install(FILES
     share/ir_lib_ce01.fits share/ir_lib_cs17.fits
-    share/mass_func_candels.fits share/opt_lib_fast.fits share/opt_lib_fast_noigm.fits
+    share/mass_func_candels.fits share/opt_lib_fast.fits share/opt_lib_fast_noigm.fits share/ir_lib_new.fits~
     DESTINATION ${EGG_SHARE_DIR} COMPONENT data)
 install(DIRECTORY share/filter-db
     DESTINATION ${EGG_SHARE_DIR} COMPONENT data)
@@ -31,6 +31,10 @@ message(STATUS ${VIF_INCLUDE_DIRS})
 add_executable(egg-gencat src/egg-gencat.cpp)
 target_link_libraries(egg-gencat ${VIF_LIBRARIES})
 install(TARGETS egg-gencat DESTINATION bin)
+
+add_executable(egg-gencat_ir src/egg-gencat_ir.cpp)
+target_link_libraries(egg-gencat_ir ${VIF_LIBRARIES})
+install(TARGETS egg-gencat_ir DESTINATION bin)
 
 if (NOT NO_GENMAP)
     add_executable(egg-genmap src/egg-genmap.cpp)
