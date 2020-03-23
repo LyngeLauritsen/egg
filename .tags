@@ -1,0 +1,15 @@
+egg_share_dir	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string egg_share_dir = file::directorize(EGG_SHARE_DIR);$/;"	variable	line:7
+filters_dir_env	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string filters_dir_env = file::directorize(system_var("EGG_FILTERS_PATH", ""));$/;"	variable	line:8
+filters_dir	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string filters_dir = filters_dir_env.empty() ?$/;"	variable	line:9
+vif_main	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^int vif_main(int argc, char* argv[]) {$/;"	function	line:14	signature:(int argc, char* argv[])
+print_help	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^void print_help() {$/;"	function	line:2311	signature:()
+egg_share_dir	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string egg_share_dir = file::directorize(EGG_SHARE_DIR);$/;"	variable	line:7
+filters_dir_env	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string filters_dir_env = file::directorize(system_var("EGG_FILTERS_PATH", ""));$/;"	variable	line:8
+filters_dir	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string filters_dir = filters_dir_env.empty() ?$/;"	variable	line:9
+vif_main	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^int vif_main(int argc, char* argv[]) {$/;"	function	line:14	signature:(int argc, char* argv[])
+print_help	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^void print_help() {$/;"	function	line:2311	signature:()
+egg_share_dir	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string egg_share_dir = file::directorize(EGG_SHARE_DIR);$/;"	variable	line:7
+filters_dir_env	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string filters_dir_env = file::directorize(system_var("EGG_FILTERS_PATH", ""));$/;"	variable	line:8
+filters_dir	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^const std::string filters_dir = filters_dir_env.empty() ?$/;"	variable	line:9
+vif_main	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^int vif_main(int argc, char* argv[]) {$/;"	function	line:14	signature:(int argc, char* argv[])
+print_help	/Users/lynge.lauritsen/github/egg/src/egg-gencat_ir.cpp	/^void print_help() {$/;"	function	line:2311	signature:()

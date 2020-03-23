@@ -85,7 +85,7 @@ int vif_main(int argc, char* argv[]) {
     std::string mass_func_file = egg_share_dir+"mass_func_candels.fits";
 
     // SED libraries
-    std::string ir_lib_file = egg_share_dir+"ir_lib_new .fits"; //"ir_lib_cs17.fits";
+    std::string ir_lib_file = egg_share_dir+"ir_lib_new.fits"; //"ir_lib_cs17.fits";
     std::string opt_lib_file;
     std::string opt_lib_imf = "salpeter";
     double opt_lib_min_step = 0.001; // um
@@ -391,11 +391,17 @@ int vif_main(int argc, char* argv[]) {
     struct {
         vec2d lam, sed;
     } ir_lib;
+    if (verbose) {
+        note("vec2d lam, sed");
+    }
 
     struct {
         vec2d lam, dust, pah;
         vec1d tdust, lir_dust, lir_pah, l8_dust, l8_pah;
     } ir_lib_cs17;
+    if (verbose) {
+        note("vec2d lam, dust, pah");
+    }
 
     uint_t nirsed;
     if (file::get_basename(ir_lib_file) == "THIS_NOT_USEFULL_HERE.fits") { //}"ir_lib_cs17.fits") {
@@ -425,17 +431,18 @@ int vif_main(int argc, char* argv[]) {
                     ir_lib.lam(0,_) = tmp.lam;
                     ir_lib.sed(0,_) = tmp.sed;
                 } else if (c.dims.size() == 2) {
-                    struct {
-                        vec1d lam, sed;
-                    } tmp;
+                    //struct {
+                    //    vec1d lam, sed;
+                    //} tmp;
 
-                    fits::read_table(ir_lib_file, ftable(tmp.lam, tmp.sed));
+                    fits::read_table(ir_lib_file, ftable(ir_lib.lam, ir_lib.sed));
+                    nirsed = ir_lib.lam.dims[0];
 
-                    ir_lib.lam.resize(1, tmp.lam.size());
-                    ir_lib.sed.resize(1, tmp.lam.size());
+                    //ir_lib.lam.resize(1, tmp.lam.size());
+                    //ir_lib.sed.resize(1, tmp.lam.size());
 
-                    ir_lib.lam(0,_) = tmp.lam;
-                    ir_lib.sed(0,_) = tmp.sed;
+                    //ir_lib.lam(0,_) = tmp.lam;
+                    //ir_lib.sed(0,_) = tmp.sed;
                 } else {
                     error("IR library must contain either 1D or 2D columns LAM and SED");
                     return 1;
@@ -938,7 +945,7 @@ int vif_main(int argc, char* argv[]) {
 
                 // Generate M* - flux relation
                 // First generate M* and z
-                vec1f tmx = rgen(mmin_strict, mmax, 1000);
+                vec1i tmx = rgen(mmin_strict, mmax, 1000);
                 vec1f tzx = replicate(tz, tmx.size());
                 // Then UVJ colors
                 vec1f tuvx, tvjx;
@@ -955,8 +962,8 @@ int vif_main(int argc, char* argv[]) {
                     get_opt_sed(tmx[it]-mlcor, tsx[it], rlam, rsed);
 
                     vec1f lam = rlam*(1.0 + tz);
-                    vec1f irlam_temp = ir_lib.lam(tmx,_)*(1.0 + tz);
-                    vec1f irsed_temp = ir_lib.sed(tmx,_);
+                    vec1f irlam_temp = ir_lib.lam(tmx[it],_)*(1.0 + tz);
+                    vec1f irsed_temp = ir_lib.sed(tmx[it],_);
                     vec1f irsed_sort = lsun2uJy(tz, td, irlam_temp, irsed_temp);
                     vec1f sed = lsun2uJy(tz, td, rlam, rsed);
 
